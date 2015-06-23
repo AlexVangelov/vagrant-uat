@@ -82,5 +82,6 @@ Vagrant.configure(2) do |config|
     sudo rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
     sudo dnf install -y Xvfb ffmpeg
     sudo su vagrant && rvm --default use 2.2
+    sudo gem install bundler
   SHELL
 end
