@@ -4,4 +4,4 @@
 .vagrant
 .project
 tmp
-video/*
+video/*.mov
