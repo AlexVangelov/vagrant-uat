@@ -13,11 +13,6 @@ Vagrant.configure(2) do |config|
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "f22atomic"
-  config.vm.provider "libvirt" do |libvirt|
-    libvirt.driver = "kvm"
-    libvirt.memory = 2048
-    libvirt.cpus = 4
-  end
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -58,6 +53,10 @@ Vagrant.configure(2) do |config|
   #
   # View the documentation for the provider you are using for more
   # information on available options.
+  config.vm.provider "libvirt" do |lv|
+    lv.memory = 2048
+    lv.cpus = 4
+  end
 
   # Define a Vagrant Push strategy for pushing to Atlas. Other push strategies
   # such as FTP and Heroku are also available. See the documentation at
@@ -81,6 +80,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision :shell, inline: <<-SHELL
     sudo usermod -a -G rvm vagrant
     sudo rpm -Uvh http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-stable.noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-stable.noarch.rpm
-    sudo dnf install -y Xvfb
+    sudo dnf install -y Xvfb ffmpeg
+    sudo rvm --default use 2.2
   SHELL
 end
