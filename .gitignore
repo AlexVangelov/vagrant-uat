@@ -1,0 +1,7 @@
+*.class
+*.pyc
+*.pyo
+.vagrant
+.project
+tmp
+video/*
